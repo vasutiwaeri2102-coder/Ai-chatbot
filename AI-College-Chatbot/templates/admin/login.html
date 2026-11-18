@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Login — AI College Assistant</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+</head>
+<body class="login-body">
+
+<div class="login-card">
+  <div class="login-mark">AI</div>
+  <h1>Admin Login</h1>
+  <p class="login-sub">AI College Assistant — Management Panel</p>
+
+  <form id="loginForm" class="login-form">
+    <label for="username">Username</label>
+    <input type="text" id="username" name="username" autocomplete="username" required>
+
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" autocomplete="current-password" required>
+
+    <div id="loginError" class="login-error" hidden></div>
+
+    <button type="submit" id="loginBtn" class="login-btn">Log In</button>
+  </form>
+
+  <a href="/" class="back-link">&larr; Back to chatbot</a>
+</div>
+
+<script src="{{ url_for('static', filename='js/admin.js') }}" data-page="login"></script>
+</body>
+</html>

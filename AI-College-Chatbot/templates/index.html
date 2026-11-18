@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI College Assistant</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="app-shell">
+
+  <!-- ============ HEADER ============ -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <button class="icon-btn" id="sidebarToggle" aria-label="Toggle menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <div class="brand">
+        <div class="brand-mark">AI</div>
+        <div class="brand-text">
+          <h1>AI College Assistant</h1>
+          <p>Your smart companion for college queries</p>
+        </div>
+      </div>
+    </div>
+    <a href="/admin" class="admin-link">Admin</a>
+  </header>
+
+  <div class="body-row">
+
+    <!-- ============ SIDEBAR ============ -->
+    <aside class="sidebar" id="sidebar">
+      <nav class="sidebar-nav">
+        <button class="nav-item active" data-action="home">
+          <span class="nav-icon">🏠</span> Chat Home
+        </button>
+        <button class="nav-item" data-category="Admissions"><span class="nav-icon">📝</span> Admissions</button>
+        <button class="nav-item" data-category="Courses"><span class="nav-icon">📚</span> Courses</button>
+        <button class="nav-item" data-category="Fees"><span class="nav-icon">💳</span> Fees</button>
+        <button class="nav-item" data-category="Exams"><span class="nav-icon">📄</span> Exams</button>
+        <button class="nav-item" data-category="Timetable"><span class="nav-icon">🕒</span> Timetable</button>
+        <button class="nav-item" data-category="Faculty"><span class="nav-icon">🎓</span> Faculty</button>
+        <button class="nav-item" data-category="Library"><span class="nav-icon">📖</span> Library</button>
+        <button class="nav-item" data-category="Hostel"><span class="nav-icon">🏢</span> Hostel</button>
+        <button class="nav-item" data-category="Placements"><span class="nav-icon">💼</span> Placements</button>
+        <button class="nav-item" data-category="Contact"><span class="nav-icon">📞</span> Contact</button>
+      </nav>
+      <div class="sidebar-footer">
+        <p>AI College Chatbot v1.0</p>
+        <p class="demo-tag">Demo data — replace before deployment</p>
+      </div>
+    </aside>
+
+    <!-- ============ MAIN CHAT AREA ============ -->
+    <main class="chat-main">
+      <div class="chat-window" id="chatWindow">
+        <div class="message bot-message">
+          <div class="avatar bot-avatar">AI</div>
+          <div class="message-content">
+            <div class="bubble">
+              Hi! I'm your AI College Assistant. Ask me anything about admissions, courses, fees, exams, hostel, library, placements, and more.
+            </div>
+            <div class="msg-time" data-time></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="typing-indicator" id="typingIndicator" hidden>
+        <div class="avatar bot-avatar">AI</div>
+        <div class="typing-dots"><span></span><span></span><span></span></div>
+      </div>
+
+      <div class="chat-input-area">
+        <div class="suggested-row" id="suggestedRow"></div>
+        <form class="chat-input-form" id="chatForm" autocomplete="off">
+          <input type="text" id="chatInput" placeholder="Type your question here..." maxlength="400" aria-label="Type your question">
+          <button type="button" class="clear-btn" id="clearChatBtn" title="Clear chat">Clear</button>
+          <button type="submit" class="send-btn" id="sendBtn" aria-label="Send message">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 11L21 3L13 21L11 13L3 11Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+          </button>
+        </form>
+      </div>
+    </main>
+
+    <!-- ============ RIGHT PANEL ============ -->
+    <aside class="right-panel" id="rightPanel">
+      <div class="panel-card">
+        <h3>Popular Queries</h3>
+        <ul class="popular-list" id="popularList">
+          <li>What courses are offered?</li>
+          <li>What is the admission process?</li>
+          <li>What are the college timings?</li>
+          <li>Where is the library?</li>
+          <li>How can I pay the fees?</li>
+        </ul>
+      </div>
+
+      <div class="panel-card" id="noticesCard">
+        <h3>Notices</h3>
+        <ul class="notices-list" id="noticesList">
+          <li class="notice-loading">Loading notices...</li>
+        </ul>
+      </div>
+
+      <div class="panel-card tips-card">
+        <h3>Tips</h3>
+        <p>Try asking questions naturally — e.g. "How much do I need to pay?" instead of exact keywords.</p>
+      </div>
+
+      <div class="panel-card help-card">
+        <h3>Need Help?</h3>
+        <p>If the chatbot can't answer, contact the college administration directly for assistance.</p>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+</body>
+</html>

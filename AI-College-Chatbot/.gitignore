@@ -1,0 +1,14 @@
+# Virtual environment
+venv/
+__pycache__/
+*.pyc
+
+# Environment variables (contains secrets)
+.env
+
+# Database (generated at runtime)
+database/college.db
+
+# OS/editor files
+.vscode/
+.DS_Store

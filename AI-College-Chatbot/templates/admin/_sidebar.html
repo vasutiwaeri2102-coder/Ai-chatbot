@@ -1,0 +1,13 @@
+<aside class="admin-sidebar">
+  <div class="admin-brand">
+    <div class="brand-mark-sm">AI</div>
+    <span>College Admin</span>
+  </div>
+  <nav class="admin-nav">
+    <a href="/admin/dashboard" class="{{ 'active' if request.path == '/admin/dashboard' else '' }}">📊 Dashboard</a>
+    <a href="/admin/faqs" class="{{ 'active' if request.path == '/admin/faqs' else '' }}">❓ Manage FAQs</a>
+    <a href="/admin/notices" class="{{ 'active' if request.path == '/admin/notices' else '' }}">📢 Manage Notices</a>
+    <a href="/" target="_blank">💬 View Chatbot</a>
+  </nav>
+  <button id="logoutBtn" class="logout-btn">Log Out</button>
+</aside>

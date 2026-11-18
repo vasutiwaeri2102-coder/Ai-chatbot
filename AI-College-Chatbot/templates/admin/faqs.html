@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manage FAQs — AI College Assistant</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+</head>
+<body>
+
+<div class="admin-shell">
+  {% include "admin/_sidebar.html" %}
+
+  <main class="admin-main">
+    <header class="admin-topbar">
+      <h1>Manage FAQs</h1>
+      <button class="primary-btn" id="addFaqBtn">+ Add FAQ</button>
+    </header>
+
+    <div class="filter-row">
+      <input type="text" id="searchInput" placeholder="Search questions or answers...">
+      <select id="categoryFilter">
+        <option value="all">All Categories</option>
+      </select>
+    </div>
+
+    <section class="admin-panel-block">
+      <div class="table-wrap">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Question</th>
+              <th>Category</th>
+              <th>Keywords</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="faqTableBody">
+            <tr><td colspan="4" class="table-loading">Loading...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+</div>
+
+<!-- Add / Edit FAQ Modal -->
+<div class="modal-overlay" id="faqModalOverlay" hidden>
+  <div class="modal">
+    <h2 id="faqModalTitle">Add FAQ</h2>
+    <form id="faqForm">
+      <input type="hidden" id="faqId">
+
+      <label for="faqQuestion">Question</label>
+      <input type="text" id="faqQuestion" required maxlength="500">
+
+      <label for="faqAnswer">Answer</label>
+      <textarea id="faqAnswer" rows="4" required></textarea>
+
+      <label for="faqCategory">Category</label>
+      <input type="text" id="faqCategory" required maxlength="100" placeholder="e.g. Fees">
+
+      <label for="faqKeywords">Keywords (comma separated, optional)</label>
+      <input type="text" id="faqKeywords" maxlength="500" placeholder="e.g. fees, payment, tuition">
+
+      <div id="faqFormError" class="login-error" hidden></div>
+
+      <div class="modal-actions">
+        <button type="button" class="secondary-btn" id="cancelFaqBtn">Cancel</button>
+        <button type="submit" class="primary-btn" id="saveFaqBtn">Save FAQ</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Delete confirmation modal -->
+<div class="modal-overlay" id="deleteModalOverlay" hidden>
+  <div class="modal modal-small">
+    <h2>Delete FAQ?</h2>
+    <p>This action cannot be undone.</p>
+    <div class="modal-actions">
+      <button type="button" class="secondary-btn" id="cancelDeleteBtn">Cancel</button>
+      <button type="button" class="danger-btn" id="confirmDeleteBtn">Delete</button>
+    </div>
+  </div>
+</div>
+
+<script>window.CSRF_TOKEN = {{ csrf_token|tojson }};</script>
+<script src="{{ url_for('static', filename='js/admin.js') }}" data-page="faqs"></script>
+</body>
+</html>

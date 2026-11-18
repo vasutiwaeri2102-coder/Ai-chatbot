@@ -1,0 +1,417 @@
+/* ==========================================================================
+   AI College Assistant - Admin Panel stylesheet
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:wght@600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --navy: #0F2A5C;
+  --blue: #2C5FD9;
+  --blue-light: #E8EFFE;
+  --blue-hover: #234DB3;
+  --gold: #C79A3F;
+  --bg: #F5F7FB;
+  --surface: #FFFFFF;
+  --ink: #1A1F2B;
+  --ink-soft: #5B6472;
+  --border: #E2E6ED;
+  --success: #1F9D63;
+  --danger: #D14343;
+  --font-display: 'Newsreader', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --radius: 12px;
+  --shadow-sm: 0 1px 2px rgba(15, 42, 92, 0.06);
+  --shadow-md: 0 8px 24px rgba(15, 42, 92, 0.12);
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; font-family: var(--font-body); color: var(--ink); background: var(--bg); }
+button { font-family: inherit; cursor: pointer; }
+input, textarea, select { font-family: inherit; }
+
+/* ============ LOGIN PAGE ============ */
+.login-body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(160deg, var(--navy) 0%, #163A7A 55%, var(--blue) 100%);
+  padding: 20px;
+}
+
+.login-card {
+  background: var(--surface);
+  border-radius: 16px;
+  padding: 40px 36px;
+  width: 100%;
+  max-width: 380px;
+  box-shadow: var(--shadow-md);
+  text-align: center;
+}
+
+.login-mark {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 16px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--gold), #E0B85C);
+  color: var(--navy);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-card h1 {
+  font-family: var(--font-display);
+  font-size: 24px;
+  margin: 0 0 4px;
+  color: var(--navy);
+}
+
+.login-sub { color: var(--ink-soft); font-size: 13px; margin: 0 0 26px; }
+
+.login-form { display: flex; flex-direction: column; text-align: left; gap: 4px; }
+
+.login-form label { font-size: 13px; font-weight: 600; margin-top: 12px; color: var(--ink); }
+
+.login-form input, .login-form textarea {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 14px;
+  outline: none;
+  margin-top: 4px;
+  transition: border-color 0.15s;
+}
+.login-form input:focus, .login-form textarea:focus { border-color: var(--blue); }
+
+.login-error {
+  background: #FEF3F3;
+  color: var(--danger);
+  border: 1px solid #F3C1C1;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 12.5px;
+  margin-top: 12px;
+}
+
+.login-btn {
+  margin-top: 20px;
+  background: var(--blue);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 14.5px;
+  font-weight: 600;
+  transition: background 0.15s;
+}
+.login-btn:hover { background: var(--blue-hover); }
+.login-btn:disabled { background: var(--border); cursor: not-allowed; }
+
+.back-link {
+  display: block;
+  margin-top: 20px;
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+.back-link:hover { color: var(--blue); }
+
+/* ============ ADMIN SHELL ============ */
+.admin-shell { display: flex; min-height: 100vh; }
+
+.admin-sidebar {
+  width: 230px;
+  background: var(--navy);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 14px;
+  flex-shrink: 0;
+}
+
+.admin-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 6px 20px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 15.5px;
+}
+
+.brand-mark-sm {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--gold), #E0B85C);
+  color: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+.admin-nav { display: flex; flex-direction: column; gap: 2px; flex: 1; }
+
+.admin-nav a {
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 12px;
+  border-radius: 8px;
+  transition: background 0.15s, color 0.15s;
+}
+.admin-nav a:hover { background: rgba(255,255,255,0.08); color: #fff; }
+.admin-nav a.active { background: rgba(255,255,255,0.14); color: #fff; }
+
+.logout-btn {
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 13.5px;
+  font-weight: 500;
+  transition: background 0.15s;
+}
+.logout-btn:hover { background: rgba(255,255,255,0.16); }
+
+/* ============ MAIN CONTENT ============ */
+.admin-main { flex: 1; padding: 26px 32px; min-width: 0; overflow-x: auto; }
+
+.admin-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.admin-topbar h1 { font-family: var(--font-display); font-size: 26px; color: var(--navy); margin: 0; }
+
+.admin-user { font-size: 13px; color: var(--ink-soft); }
+
+.primary-btn {
+  background: var(--blue);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 13.5px;
+  font-weight: 600;
+  transition: background 0.15s;
+}
+.primary-btn:hover { background: var(--blue-hover); }
+
+.secondary-btn {
+  background: var(--surface);
+  color: var(--ink-soft);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 13.5px;
+  font-weight: 600;
+}
+.secondary-btn:hover { background: var(--bg); }
+
+.danger-btn {
+  background: var(--danger);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 13.5px;
+  font-weight: 600;
+}
+.danger-btn:hover { background: #B93636; }
+
+/* ============ STATS ============ */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+}
+
+.stat-label { font-size: 12.5px; color: var(--ink-soft); font-weight: 600; text-transform: uppercase; letter-spacing: 0.03em; }
+.stat-value { font-family: var(--font-display); font-size: 32px; color: var(--navy); margin-top: 6px; }
+.stat-warn .stat-value { color: var(--danger); }
+
+/* ============ TABLE ============ */
+.admin-panel-block {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+}
+
+.admin-panel-block h2 { font-family: var(--font-display); font-size: 18px; color: var(--navy); margin: 0 0 14px; }
+
+.table-wrap { overflow-x: auto; }
+
+.admin-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+
+.admin-table th {
+  text-align: left;
+  padding: 10px 12px;
+  background: var(--bg);
+  color: var(--ink-soft);
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  border-bottom: 1px solid var(--border);
+}
+
+.admin-table td {
+  padding: 12px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+  color: var(--ink);
+}
+
+.admin-table tr:last-child td { border-bottom: none; }
+
+.table-loading { color: var(--ink-soft); text-align: center; padding: 24px !important; }
+
+.cell-actions { display: flex; gap: 8px; }
+
+.action-link {
+  background: none;
+  border: none;
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+.edit-link { color: var(--blue); }
+.edit-link:hover { background: var(--blue-light); }
+.delete-link { color: var(--danger); }
+.delete-link:hover { background: #FEF3F3; }
+
+.category-badge {
+  display: inline-block;
+  background: var(--blue-light);
+  color: var(--blue);
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 12px;
+}
+
+.status-badge {
+  display: inline-block;
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 12px;
+}
+.status-active { background: #E4F7EE; color: var(--success); }
+.status-inactive { background: #F0F1F3; color: var(--ink-soft); }
+
+/* ============ FILTER ROW ============ */
+.filter-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.filter-row input, .filter-row select {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 13.5px;
+  outline: none;
+}
+.filter-row input { flex: 1; min-width: 200px; }
+.filter-row input:focus, .filter-row select:focus { border-color: var(--blue); }
+
+/* ============ MODAL ============ */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 42, 92, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 20px;
+}
+
+/* Author CSS normally overrides the browser's built-in [hidden] rule,
+   so this override is required to make the "hidden" attribute actually
+   hide the modal (toggled from admin.js via element.hidden = true/false). */
+.modal-overlay[hidden] {
+  display: none;
+}
+
+.modal {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 28px;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: var(--shadow-md);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-small { max-width: 380px; }
+
+.modal h2 { font-family: var(--font-display); font-size: 20px; color: var(--navy); margin: 0 0 6px; }
+.modal p { color: var(--ink-soft); font-size: 13.5px; margin: 0 0 10px; }
+
+.modal form { display: flex; flex-direction: column; }
+
+.modal label { font-size: 13px; font-weight: 600; margin-top: 14px; color: var(--ink); }
+
+.modal input[type="text"],
+.modal textarea {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 14px;
+  outline: none;
+  margin-top: 4px;
+  resize: vertical;
+}
+.modal input:focus, .modal textarea:focus { border-color: var(--blue); }
+
+.checkbox-label { display: flex; align-items: center; gap: 8px; font-weight: 500 !important; }
+.checkbox-label input { width: auto; margin-top: 0; }
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 800px) {
+  .admin-shell { flex-direction: column; }
+  .admin-sidebar { width: 100%; flex-direction: row; align-items: center; padding: 12px 16px; overflow-x: auto; }
+  .admin-brand { padding: 0 12px 0 0; }
+  .admin-nav { flex-direction: row; flex: none; }
+  .logout-btn { margin-left: auto; }
+  .admin-main { padding: 20px; }
+}
